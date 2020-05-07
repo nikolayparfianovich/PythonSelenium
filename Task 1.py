@@ -1,3 +1,4 @@
+#вариант 16
 number = int(input("Введите число: "))
 
 if number in range (0,8):

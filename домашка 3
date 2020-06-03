@@ -1,0 +1,99 @@
+class Bus:
+    __firstname = ""
+    __number = 0
+    __way = 0
+    __mark = ""
+    __year = 0
+    __milage = 0
+
+    def __init__(self, firstname, number, way, mark, year, milage):
+        self.__firstname = firstname
+        self.__number = number
+        self.__way = way
+        self.__mark = mark
+        self.__year = year
+        self.__milage = milage
+
+    def __str__(self):
+        return str(self.__firstname) + " " + str(self.__number) + " " + str(self.__way) + " " + str(
+            self.__mark) + " " + str(self.__year) + " " + (self.__milage)
+
+    def get_firstname(self):
+        return self.__firstname
+
+    def get_number(self):
+        return self.__number
+
+    def get_way(self):
+        return self.__way
+
+    def get_mark(self):
+        return self.__mark
+
+    def get_year(self):
+        return self.__year
+
+    def get_milage(self):
+        return self.__milage
+
+    def set_firstname(self, firstname):
+        if type(firstname) == "":
+            self.__firstname = firstname
+
+        else:
+            print("Имя не может быть пустым.Введите имя")
+
+    def set_number(self, number):
+        if type(number) == int:
+            if 0 < number < 10:
+                self.__number = number
+        else:
+            print("Введите номер автобуса")
+
+    def set_way(self, way):
+        if type(way) == int:
+            if 0 < way < 45:
+                self.__way = way
+        else:
+            print("Введите номер маршрута")
+
+    def set_mark(self, mark):
+        if mark != "":
+            self.__mark = mark
+        else:
+            print("Введите марку автобуса")
+
+    def set_year(self, year):
+        if type(year) == int:
+            if 2000 < year < 2020:
+                self.__year = year
+        else:
+            print("Введите год с 2000 по 2020")
+
+    def set_milage(self, milage):
+        if type(milage) == int:
+            self.__milage = milage
+        else:
+            print("Введите пробег автобуса")
+
+
+buses = [Bus("Петров Н.Н", 1, 42, "МАЗ", 2019, 150), Bus("YGHYHU.GH", 2, 43, "KAMAZ", 2010, 100),
+         Bus("КЕАЕН.РР", 3, 43, "MAN", 2010, 130), Bus("HHHUHGF.HH", 4, 44, "MERS", 2005, 120)]
+select_way = input("Введите номер маршрута: ")
+
+for bus in buses:
+    if bus.get_way() == select_way:
+        print(bus)
+else:
+    print("Введите другой маршрут")
+
+input_mark = input("Введите марку автобуса: ")
+input_year = int(input("Введите год начала экспулатации: "))
+
+for bus in buses:
+    if bus.get_mark() == input_mark:
+        if bus.get_year() ==input_year:
+            print(bus)
+
+else:
+     print("Введите другой год: ")
